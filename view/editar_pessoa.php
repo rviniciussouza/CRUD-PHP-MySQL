@@ -12,16 +12,38 @@
 
     <?php $pessoa = $pessoaController->getById($_GET['id']); ?>
 
+    <div style="width: 500px" >
+
     <form method="post" action="../controller/PessoaController.php?action=update" id="form">
         <input type="hidden" value="<?php echo $pessoa['id'] ?>" name="id" required />
-        <input type="text" value="<?php echo $pessoa['nome'] ?>" name="nome" required />
-        <input type="text" value="<?php echo $pessoa['cpf'] ?>" name="cpf" required />
-        <input type="date" value="<?php echo $pessoa['data_nasc'] ?>" name="data_nasc" required />
-        <input type="text" value="<?php echo $pessoa['ocupacao'] ?>" name="ocupacao" required />
+        
 
-        <button type="submit" value="Cadastrar">Editar</button>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNome">Nome</label>
+                <input type="text" class="form-control" value="<?php echo $pessoa['nome'] ?>" name="nome" id="inputNome" placeholder="Nome" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputCpf">CPF</label>
+                <input type="text" class="form-control" value="<?php echo $pessoa['cpf'] ?>"  id="inputCpf" name="cpf" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputDataNasc">Data de nascimento</label>
+                <input type="date" class="form-control" id="inputDataNasc" value="<?php echo $pessoa['data_nascimento'] ?>" name="data_nasc" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputOcupacap">Ocupação</label>
+                <input type="text" class="form-control" id="inputOcupacap" name="ocupacao" value="<?php echo $pessoa['ocupacao'] ?>" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" >Editar</button>
     </form>
 
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
